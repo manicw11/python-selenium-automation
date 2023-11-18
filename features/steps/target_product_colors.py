@@ -16,6 +16,7 @@ def open_target_product_page(context):
 @then('Loop through colours of A-53709185')
 def loop_thru_colours(context):
     colour_options = []
+    expected_colours = ['Wasabi Green', 'Charcoal', 'Teal', 'Purple']
 
     colours = context.driver.find_elements(*LIST_OF_COLOURS)
     for colour in colours:
@@ -24,3 +25,4 @@ def loop_thru_colours(context):
         colour_options.append(selected_colour)
 
     print(colour_options)
+    assert colour_options == expected_colours, f'Actual colours, {colour_options}, are not the same as expected colours'
