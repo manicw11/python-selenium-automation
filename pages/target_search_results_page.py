@@ -5,13 +5,13 @@ from time import sleep
 
 
 class SearchResultsPage(Page):
-    ADD_TO_CART_BTN = (By.CSS_SELECTOR, "[aria-label*='Add Cuisinart Air Fryer'][data-test='addToCartButton']")
-    DECLINE_COVERAGE_BTN = (By.CSS_SELECTOR, "[data-test='espDrawerContent-declineCoverageButton']")
+    ADD_TO_CART_BTN = (By.CSS_SELECTOR, '[id*="addToCartButtonOrTextId"]')
+    CLOSE_SIDE_WNDW_BTN = (By.CSS_SELECTOR, "[class*='styles__CellContent'] [aria-label='close']")
     CART_BTN = (By.CSS_SELECTOR, "[data-test='@web/CartLink']")
 
-    def add_fryer_to_cart(self):
-        self.find_element(*self.ADD_TO_CART_BTN).click()
+    def add_product_to_cart(self):
+        self.click(*self.ADD_TO_CART_BTN)
         sleep(5)
 #        self.wait.until(EC.visibility_of_element_located(self.DECLINE_COVERAGE_BTN))
-        self.find_element(*self.DECLINE_COVERAGE_BTN).click()
-        self.find_element(*self.CART_BTN).click()
+        self.click(*self.CLOSE_SIDE_WNDW_BTN)
+        self.click(*self.CART_BTN)

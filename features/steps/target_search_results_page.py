@@ -4,6 +4,7 @@ from behave import given, when, then
 from time import sleep
 
 
-@when('Add air fryer to cart')
-def add_fryer_to_cart(context):
-    context.app.target_search_results_page.add_fryer_to_cart()
+@when('Add product to cart')
+def add_product_to_cart(context):
+    context.driver.execute_script("window.scrollBy(0,2000)", "")
+    context.app.target_search_results_page.add_product_to_cart()

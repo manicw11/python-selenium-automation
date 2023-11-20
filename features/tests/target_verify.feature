@@ -13,3 +13,15 @@ Feature: Verification tests
       When Click on Sign In
       When Click on Menu Sign In
       Then Verify Sign In page opens
+
+
+  Scenario: Verify Product in Cart
+    Given Open Target main page
+    When Search for Air Fryer
+    And Add product to cart
+    Then Verify Air Fryer in cart
+
+
+  Scenario: Verify Benefit Boxes
+    Given Open Target Circle page
+    Then Verify 5 Benefit Boxes are present
