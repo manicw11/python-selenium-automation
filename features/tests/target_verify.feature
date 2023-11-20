@@ -17,9 +17,9 @@ Feature: Verification tests
 
   Scenario: Verify Product in Cart
     Given Open Target main page
-    When Search for Air Fryer
+    When Search for Vortex Pro Air Fryer
     And Add product to cart
-    Then Verify Air Fryer in cart
+    Then Verify Vortex Pro Air Fryer in cart
 
 
   Scenario: Verify Benefit Boxes

@@ -24,3 +24,12 @@ def click_cart(context):
     context.app.target_main_page.click_cart()
 #    context.driver.wait.until(EC.url_changes('https://www.target.com/cart'))
 
+
+@when('Click on Sign In')
+def click_sign_in(context):
+    context.driver.find_element(By.CSS_SELECTOR, "[data-test='@web/AccountLink']").click()
+
+
+@when('Click on Menu Sign In')
+def click_menu_sign_in(context):
+    context.driver.find_element(By.CSS_SELECTOR, "[data-test='accountNav-signIn']").click()

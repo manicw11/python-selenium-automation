@@ -10,6 +10,7 @@ class SearchResultsPage(Page):
     CART_BTN = (By.CSS_SELECTOR, "[data-test='@web/CartLink']")
 
     def add_product_to_cart(self):
+        sleep(5)
         self.click(*self.ADD_TO_CART_BTN)
         sleep(5)
 #        self.wait.until(EC.visibility_of_element_located(self.DECLINE_COVERAGE_BTN))

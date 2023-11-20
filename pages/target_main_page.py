@@ -22,3 +22,5 @@ class MainPage(Page):
     def click_cart(self):
         self.find_element(*self.CART_BTN).click()
         sleep(5)
+
+
