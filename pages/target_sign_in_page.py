@@ -5,8 +5,17 @@ from time import sleep
 
 class SignInPage(Page):
     SIGN_IN_TXT = (By.XPATH, "//span[text()='Sign into your Target account']")
+    USER_FIELD = (By.CSS_SELECTOR, '#username')
+    PW_FIELD = (By.CSS_SELECTOR, '#password')
+    LOGIN_BTN = (By.CSS_SELECTOR, '#login')
 
     def verify_sign_in(self):
-        text_result = self.find_element(*self.SIGN_IN_TXT).text
-        expected_result = 'Sign into your Target account'
-        assert text_result == expected_result, f'Expected text {expected_result} is not present'
+        self.verify_text('Sign into your Target account', *self.SIGN_IN_TXT)
+
+    def input_credentials(self):
+        self.input('mcw@coredp.com', *self.USER_FIELD)
+        self.input('**********', *self.PW_FIELD)
+        self.click(*self.LOGIN_BTN)
+
+    def verify_login(self):
+        self.wait_to_disappear(self.SIGN_IN_TXT)

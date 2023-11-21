@@ -1,7 +1,5 @@
-from selenium.webdriver.common.by import By
 from behave import given, when, then
 from time import sleep
-from selenium.webdriver.support import expected_conditions as EC
 
 
 @given('Open Target main page')
@@ -22,14 +20,14 @@ def input_search_field(context, product):
 @when('Click on cart icon')
 def click_cart(context):
     context.app.target_main_page.click_cart()
-#    context.driver.wait.until(EC.url_changes('https://www.target.com/cart'))
+#    context.app.target_main_page.wait_for_url_change('https//www.target.com/cart)
 
 
 @when('Click on Sign In')
 def click_sign_in(context):
-    context.driver.find_element(By.CSS_SELECTOR, "[data-test='@web/AccountLink']").click()
+    context.app.target_main_page.click_sign_in()
 
 
 @when('Click on Menu Sign In')
 def click_menu_sign_in(context):
-    context.driver.find_element(By.CSS_SELECTOR, "[data-test='accountNav-signIn']").click()
+    context.app.target_main_page.click_side_menu_sign_in()

@@ -25,3 +25,11 @@ Feature: Verification tests
   Scenario: Verify Benefit Boxes
     Given Open Target Circle page
     Then Verify 5 Benefit Boxes are present
+
+
+  Scenario: Verify User can Login
+    Given Open target main page
+    When Click on Sign In
+    And Click on Menu Sign In
+    And Input Username and Password
+    Then Verify User is logged in

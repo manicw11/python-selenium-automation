@@ -8,12 +8,7 @@ class CartPage(Page):
     CART_ITEM = (By.CSS_SELECTOR, "[data-test='cartItem']")
 
     def verify_empty_cart(self):
-        text_result = self.find_element(*self.EMPTY_CART_TXT).text
-        expected_result = 'Your cart is empty'
-        assert text_result == expected_result, f'Expected text {expected_result} is not present'
+        self.verify_text('Your cart is empty', *self.EMPTY_CART_TXT)
 
     def verify_product_in_cart(self, product):
-        expected_item_text = f'{product}'
-        actual_item_text = self.find_element(*self.CART_ITEM).text
-        print(actual_item_text)
-        assert expected_item_text in actual_item_text, f'Expected item, {expected_item_text}, is not in cart'
+        self.verify_partial_text(product, *self.CART_ITEM)
