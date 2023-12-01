@@ -8,6 +8,10 @@ class SignInPage(Page):
     USER_FIELD = (By.CSS_SELECTOR, '#username')
     PW_FIELD = (By.CSS_SELECTOR, '#password')
     LOGIN_BTN = (By.CSS_SELECTOR, '#login')
+    TERMS_AND_CONDITIONS_LNK = (By.CSS_SELECTOR, "[aria-label='terms & conditions - opens in a new window']")
+
+    def open_sign_in(self):
+        self.open_url('https://www.target.com/account')
 
     def verify_sign_in(self):
         self.verify_text('Sign into your Target account', *self.SIGN_IN_TXT)
@@ -19,3 +23,6 @@ class SignInPage(Page):
 
     def verify_login(self):
         self.wait_to_disappear(self.SIGN_IN_TXT)
+
+    def click_terms_and_conditions(self):
+        self.click(*self.TERMS_AND_CONDITIONS_LNK)

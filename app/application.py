@@ -3,6 +3,7 @@ from pages.target_cart_page import CartPage
 from pages.target_main_page import MainPage
 from pages.target_search_results_page import SearchResultsPage
 from pages.target_sign_in_page import SignInPage
+from pages.target_terms_and_conditions_page import TermsAndConditionsPage
 
 
 class Application:
@@ -12,3 +13,4 @@ class Application:
         self.target_main_page = MainPage(driver)
         self.target_search_results_page = SearchResultsPage(driver)
         self.target_sign_in_page = SignInPage(driver)
+        self.target_terms_and_conditions_page = TermsAndConditionsPage(driver)

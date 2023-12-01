@@ -29,6 +29,23 @@ class Page:
         assert expected_text == actual_text, \
             f"Expected text, '{expected_text}', did not match actual '{actual_text}'"
 
+    def get_current_window(self):
+        return self.driver.current_window_handle
+
+    def get_all_windows(self):
+        return self.driver.window_handles
+
+    def switch_to_new_window(self):
+        self.driver.wait.until(EC.new_window_is_opened)
+        new_window = self.driver.window_handles[1]
+        self.driver.switch_to.window(new_window)
+
+    def switch_to_window(self, window_id):
+        self.driver.switch_to.window(window_id)
+
+    def close_page(self):
+        self.driver.close()
+
     def wait_for_clickable(self, locator):
         self.wait.until(EC.element_to_be_clickable(locator), message=f'Element "{locator}" not clickable').click()
 
