@@ -42,3 +42,8 @@ Feature: Verification tests
     And Switch to the newly opened window
     Then Verify Terms and Conditions page is opened
     And User can close new window and switch back to original
+
+    Scenario: Verify User is unable to login with incorrect credentials
+      Given Open sign in page
+      When Input Username and Password
+      Then Verify User cannot log in

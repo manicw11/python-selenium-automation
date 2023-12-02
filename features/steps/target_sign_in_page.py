@@ -48,3 +48,8 @@ def verify_terms_conditions_opened(context):
 def close_window_return_to_original(context):
     context.app.page.close_page()
     context.app.page.switch_to_window(context.current_window)
+
+
+@then('Verify User cannot log in')
+def verify_failed_login(context):
+    context.app.target_sign_in_page.verify_failed_login()

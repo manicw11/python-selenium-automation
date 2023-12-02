@@ -5,3 +5,10 @@ Feature: Test Scenarios for Search functionality
     When Input Car into search field
     And Click on search icon
     Then Product results for Car are shown
+
+
+  Scenario: User can select Help topic
+    Given Open Help page for Returns
+    Then Verify Returns page opened
+    When Select Help topic Delivery & Pickup
+    Then Verify Delivery & Pickup page opened

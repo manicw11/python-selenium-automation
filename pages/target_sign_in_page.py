@@ -8,6 +8,7 @@ class SignInPage(Page):
     USER_FIELD = (By.CSS_SELECTOR, '#username')
     PW_FIELD = (By.CSS_SELECTOR, '#password')
     LOGIN_BTN = (By.CSS_SELECTOR, '#login')
+    NO_ACCOUNT_TXT = (By.CSS_SELECTOR, "[data-test='authAlertDisplay']")
     TERMS_AND_CONDITIONS_LNK = (By.CSS_SELECTOR, "[aria-label='terms & conditions - opens in a new window']")
 
     def open_sign_in(self):
@@ -17,8 +18,8 @@ class SignInPage(Page):
         self.verify_text('Sign into your Target account', *self.SIGN_IN_TXT)
 
     def input_credentials(self):
-        self.input('mcw@coredp.com', *self.USER_FIELD)
-        self.input('**********', *self.PW_FIELD)
+        self.input('mcw5@coredp.com', *self.USER_FIELD)
+        self.input('hdUeq83%&@L', *self.PW_FIELD)
         self.click(*self.LOGIN_BTN)
 
     def verify_login(self):
@@ -26,3 +27,6 @@ class SignInPage(Page):
 
     def click_terms_and_conditions(self):
         self.click(*self.TERMS_AND_CONDITIONS_LNK)
+
+    def verify_failed_login(self):
+        self.wait_for_visible(self.NO_ACCOUNT_TXT)
