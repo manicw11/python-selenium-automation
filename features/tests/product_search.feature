@@ -6,7 +6,7 @@ Feature: Test Scenarios for Search functionality
     And Click on search icon
     Then Product results for Car are shown
 
-
+  @smoke
   Scenario: User can select Help topic
     Given Open Help page for Returns
     Then Verify Returns page opened

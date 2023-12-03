@@ -7,7 +7,7 @@ Feature: Verification tests
       When Click on cart icon
       Then Verify cart is empty message shown
 
-
+  @smoke
   Scenario: Verify Sign in
       Given Open target main page
       When Click on Sign In
@@ -34,7 +34,7 @@ Feature: Verification tests
     And Input Username and Password
     Then Verify User is logged in
 
-
+  @smoke
   Scenario: User can open and close Terms and Conditions from sign in page
     Given Open sign in page
     When Store original windows
@@ -43,6 +43,7 @@ Feature: Verification tests
     Then Verify Terms and Conditions page is opened
     And User can close new window and switch back to original
 
+    @smoke
     Scenario: Verify User is unable to login with incorrect credentials
       Given Open sign in page
       When Input Username and Password
